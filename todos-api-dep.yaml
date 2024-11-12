@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todos-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todos-api
+  template:
+    metadata:
+      labels:
+        app: todos-api
+    spec:
+      containers:
+      - name: todos-api
+        image: moutchou/k8sprojet-todos-api
+        ports:
+        - containerPort: 8082
+        env:
+        - name: ZIPKIN_SERVER_URL
+          value: "http://zipkin.default.svc.cluster.local:9411/api/v2/spans"  # Assurez-vous que l'adresse correspond à celle du service Zipkin dans votre cluster
+

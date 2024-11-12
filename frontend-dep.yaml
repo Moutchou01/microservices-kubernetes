@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: moutchou/k8sprojet-frontend
+        ports:
+        - containerPort: 8080
+        env:
+        - name: ZIPKIN_SERVER_URL
+          value: "http://zipkin.default.svc.cluster.local:9411/api/v2/spans"  # URL du service Zipkin
+
+      
+
