@@ -9,6 +9,6 @@ spec:
     - protocol: TCP
       port: 9411
       targetPort: 9411
-      nodePort: 30099  # Choisissez un port dans la plage 30000-32767
+      nodePort: 30199  # Choisissez un port dans la plage 30000-32767
   type: NodePort
 
