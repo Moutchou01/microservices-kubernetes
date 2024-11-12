@@ -40,7 +40,7 @@ jobs:
         with:
           context: ${{ matrix.service }}  
           push: true
-          tags: nabil2222/${{ matrix.service }}:latest
+          tags: moutchou/${{ matrix.service }}:latest
         
           
   
